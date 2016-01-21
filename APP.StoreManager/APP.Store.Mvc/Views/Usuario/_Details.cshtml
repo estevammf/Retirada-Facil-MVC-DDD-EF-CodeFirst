@@ -1,0 +1,65 @@
+﻿@*@model APP.StoreManager.Infra.CrossCutting.Identity.Model.ApplicationUser*@
+@model APP.StoreManager.Domain.Entities.Usuario
+
+  @{
+    ViewBag.Titulo = "Informações do Usuário";
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">@ViewBag.Titulo</h4>
+</div>
+
+<div class="modal-body">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+
+    <h4>Lista de Claims para este usuário</h4>
+
+    @if (ViewBag.Claims.Count == 0)
+    {
+        <hr />
+        <p>Usuário não possui nenhum Claim.</p>
+    }
+    else
+    {
+        <table class="table">
+            <tr class="table-bordered">
+                <td>
+                    <b>Nome da Claim</b>
+                </td>
+                <td>
+                    <b>Valor da Claim</b>
+                </td>
+            </tr>
+
+            @foreach (var item in ViewBag.Claims)
+            {
+                <tr>
+                    <td>
+                        @item.Type
+                    </td>
+                    <td>
+                        @item.Value
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+
+
+</div>
+
+
+<div class="modal-footer">
+    <button class="btn" type="button" data-dismiss="modal">Sair</button>
+</div>
+
+

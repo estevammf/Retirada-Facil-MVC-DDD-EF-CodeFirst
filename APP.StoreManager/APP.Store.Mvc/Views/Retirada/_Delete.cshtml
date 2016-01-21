@@ -1,0 +1,62 @@
+﻿@model APP.StoreManager.Domain.Entities.Retirada
+
+@{
+    ViewBag.TituloModal = "Remover registro da base de dados";
+}
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Confirma a remoção desse item?</h4>
+</div>
+
+<div class="modal-body">
+
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caixa.NumeroIdentificador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caixa.NumeroIdentificador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataHoraRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataHoraRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroEnvelope)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroEnvelope)
+        </dd>
+    </dl>
+
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-footer">
+        <button class="btn" type="button" data-dismiss="modal">Não</button>
+        <input class="btn btn-danger" type="submit" value="Sim" />
+    </div>
+}
+

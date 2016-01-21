@@ -1,0 +1,121 @@
+﻿@using System.Globalization
+@using APP.Store.Mvc.Helper
+@using APP.Store.Mvc.Models
+@model IEnumerable<APP.Store.Mvc.Models.TotalRendimentoMesViewModel>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="box flat box-success">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-6">
+                        <div class="description-block border-right">
+                            <span class="text-green"><i class="fa fa-caret-up"></i></span>
+                            <h5 class="description-header">@ViewBag.TotalRendimentosMes</h5>
+                            <span class="description-text">RENDIMENTOS DO MÊS ATUAL</span>
+                        </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                    <div class="col-sm-4 col-xs-6">
+                        <div class="description-block border-right">
+                            <span class="text-green"><i class="fa fa-caret-up"></i></span>
+                            <h5 class="description-header">@ViewBag.TotalRendimentosAno</h5>
+                            <span class="description-text">RENDIMENTOS DO ANO DE @TimeZoneHelper.DataAtualBrasil().Year</span>
+                        </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                    <div class="col-sm-4 col-xs-6">
+                        <div class="description-block">
+                            <span class="text-green"><i class="fa fa-caret-up"></i></span>
+                            <h5 class="description-header">@ViewBag.TotalRendimentosEmpresa</h5>
+                            <span class="description-text">TOTAL DE RENDIMENTOS DA EMPRESA</span>
+                        </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div>
+            
+            <div class="box-footer">
+                <div class="box-header with-border">
+                    <h4 class="box-title text-blue text-bold">BASE DE CÁLCULO</h4>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="text-bold text-blue">
+                            <td>TRANSAÇÃO</td>
+                            <td>FAIXA DE TRANSAÇÃO</td>
+                            <td>VALOR (R$)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Recebimento de conta</td>
+                            <td>1 a 5000 <br/> Acima de 5000</td>
+                            <td>0,65 <br/> 0,67</td>
+                        </tr>
+                        <tr>
+                            <td>Recebimento de Escelsa</td>
+                            <td>-</td>
+                            <td>0,42</td>
+                        </tr>
+                        <tr>
+                            <td>Saques</td>
+                            <td>1 a 5000 <br /> Acima de 5000</td>
+                            <td>0,54 <br /> 0,60</td>
+                        </tr>
+                        <tr>
+                            <td>Depósito</td>
+                            <td>-</td>
+                            <td>0,38</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+       
+        
+                <div class="box box-primary flat">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">ADICIONAR RENDIMENTOS</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="row" id="formCreate">
+                           
+                                @Html.Partial("_Create", new RendimentoViewModel())
+                           
+                        </div>
+                    </div><!-- /.box-body -->
+                </div>
+        </div>
+
+ 
+    <div class="col-md-6">
+        <div class="box flat box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Rendimentos mensais</h3>
+            </div>
+
+            <div class="box-body">
+
+                <ul class="nav nav-pills nav-stacked">
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            @*<button class="btn_search" value="@Url.Action("List", "Rendimento", new { data = @item.DataReferencia })">
+                                <span class="text-uppercase label label-danger pull-right">@item.DataReferencia.ToString("MMM", CultureInfo.CurrentCulture)</span>
+                                @item.Total.ToString("C")
+                            </button>*@
+                            <a class="btn_search" href="@Url.Action("List", "Rendimento", new { data = item.DataReferencia })">
+                                <span class="text-uppercase label label-danger pull-right">@item.DataReferencia.ToString("MMM", CultureInfo.CurrentCulture)</span>
+                                @item.Total.ToString("C")
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,226 @@
+﻿@using APP.Store.Mvc.Helper
+@using APP.Store.Mvc.Models
+@model IEnumerable<APP.Store.Mvc.Models.RetiradaViewModel>
+
+    @Styles.Render("~/Content/datepicker")
+
+    @{
+        ViewBag.TituloPagina = "Retiradas";
+        ViewBag.DescricaoPagina = "Controle de Retiradas de Caixa";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        //string dataOperacaoFilter = string.Empty;
+        var listaCaixas = ViewBag.Caixas as List<CaixaViewModel>;
+    }
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-gray-light"><i class="ion ion-ios-calendar-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">DATA DE OPERAÇÃO</span>
+                    <span class="info-box-number">@ViewBag.DataOperacao<small></small></span>
+                    <span class="info-box-number">@ViewBag.DiaOperacao<small></small></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-gray-light"><i class="ion ion-android-funnel"></i></span>
+                @using (Html.BeginForm("ObtemRetiradasViaFiltro", "Retirada"))
+                {
+                    <div class="info-box-content">
+                        <span class="info-box-text">PESQUISAR RETIRADAS POR DATA</span>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon"><i class="ion ion-ios-calendar-outline"></i></span>
+                            @Html.TextBox("data", null, new { @id = "dataPesquisa", @class="form-control"})
+                            @*<input class="form-control" type="text" id="dataPesquisa">*@
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-flat" type="submit">BUSCAR</button>
+                            </span>
+                        </div>
+                        @*<span class="info-box-number">@ViewBag.DataOperacao<small>%</small></span>*@
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-gray-light"><i class="ion ion-ios-bolt"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">TOTAL DE RETIRADAS DO DIA</span>
+                    <span class="info-box-number">@ViewBag.TotalDoDia<small></small></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">CADASTRAR NOVA RETIRADA</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row" id="formCreate">
+                        @Html.Partial("_Create", new RetiradaViewModel())
+                    </div>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+    
+<div class="row">
+   @foreach (var caixa in listaCaixas)
+   {
+       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-blue-gradient">
+                <div class="inner">
+                  <h4>@caixa.TotalRetiradas.ToString("C")</h4>
+                  <p class="text-sm">@caixa.NumeroIdentificador</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-arrow-graph-down-right"></i>
+                </div>
+                <a class="small-box-footer" href="#">Operador: @caixa.Operador.Nome <i class="ion ion-person"></i></a>
+              </div>
+        </div>
+   }
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <a class="btn btn-default text-uppercase" href="@Url.Action("RelatorioRetirada", "Retirada")"><i class="ion ion-ios-paper-outline"></i> Gerar relatório de retiradas</a>
+    </div>
+</div>
+
+<br/>
+
+
+
+    <div class="box">
+        <div class="box-body table-responsive no-padding">
+
+            <table class="table table-striped text-center">
+                <tbody>
+                    <tr class="text-uppercase text-sm">
+                        <th>
+                            Data e Hora da Retirada
+                        </th>
+                        <th>
+                            Número do Caixa
+                        </th>
+                        <th>
+                            Operador do Caixa
+                        </th>
+                        <th>
+                            Valor Contido no Envelope
+                        </th>
+                        <th>
+                            Identificação do Envelope
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataHoraRegistro)
+                            </td>
+                            <td>
+                                <small class="label label-primary">
+                                    @Html.DisplayFor(modelItem => item.Caixa.NumeroIdentificador)
+                                </small>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Caixa.Operador.Nome)
+                            </td>
+                            <td>
+                                R$ @Html.DisplayFor(modelItem => item.Valor)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumeroEnvelope)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    @{
+                                    if (Request.IsAuthenticated)
+                                    {
+                                        var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+                                        if (claimsIdentity != null)
+                                        {
+                                            var claimEditar = claimsIdentity.FindFirst(c => c.Type == "EDITAR_RETIRADA");
+                                            var claimRemover = claimsIdentity.FindFirst(c => c.Type == "REMOVER_RETIRADA");
+
+                                            if (claimEditar != null)
+                                            {
+                                                if (claimEditar.Value == "True")
+                                                {
+                                                    @Html.NoEncodeActionLink("<i class='fa fa-pencil'></i>", "Edit", "Edit", "Retirada", routeValues: new { id = item.Id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+                                                }
+                                            }
+
+
+                                            if (claimRemover != null)
+                                            {
+                                                if (claimRemover.Value == "True")
+                                                {
+
+                                                    @Html.NoEncodeActionLink("<i class='fa fa-trash'></i>", "Delete", "Delete", "Retirada", routeValues: new { id = item.Id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                    }
+                                </div>
+
+                            </td>
+                        </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+       
+    
+                      <!-- modal placeholder-->
+<div id='myModal' class='modal fade' role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+    
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquerymoney")
+    @Scripts.Render("~/bundles/datepicker")
+    
+    <script>
+
+        $("#ValorString").maskMoney();
+        $("#valor_string").maskMoney();
+        $('#dataPesquisa').datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR"
+        });
+
+
+        function handleSuccess(result) {
+            if (result.redirectTo) {
+                // The controller action returned a JSON object with the redirectTo property
+                // let's redirect to this location:
+                window.location.href = result.redirectTo;
+            } else {
+                // The controller action returned a partial view with the form and the errors
+                // So we need to update some containing DIV with it:
+                $('#formCreate').html(result);
+            }
+        }
+    </script>
+}

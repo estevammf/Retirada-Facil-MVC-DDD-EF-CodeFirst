@@ -1,0 +1,5 @@
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Domain\bin\Release\APP.StoreManager.Domain.dll.config
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Domain\bin\Release\APP.StoreManager.Domain.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Domain\bin\Release\APP.StoreManager.Domain.pdb
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Domain\obj\Release\APP.StoreManager.Domain.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Domain\obj\Release\APP.StoreManager.Domain.pdb

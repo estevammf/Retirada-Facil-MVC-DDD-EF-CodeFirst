@@ -1,0 +1,27 @@
+﻿@{
+        ViewBag.TituloPagina = "Usuários";
+        ViewBag.DescricaoPagina = "Manutenção de usuários cadastrados no sistema";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+<!-- modal placeholder-->
+<div id='myModal' class='modal fade' role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+<div class="box">
+        <div class="box-body table-responsive no-padding" id="replacetarget">
+            @{
+                Html.RenderAction("List", "Usuario");
+            }
+        </div>
+    </div>
+
+>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

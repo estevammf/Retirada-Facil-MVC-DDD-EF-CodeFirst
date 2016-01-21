@@ -1,0 +1,31 @@
+﻿@using APP.Store.Mvc.Models
+
+
+@{
+    ViewBag.TituloPagina = "Empresas";
+    ViewBag.DescricaoPagina = "Manutenção das empresas ativas no sistema";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+   <!-- modal placeholder-->
+<div id='myModal' class='modal fade' role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div> 
+<div class="box">
+
+    <div class="box-body table-responsive no-padding" id="replacetarget">
+        @{ Html.RenderAction("List", "Empresa"); }
+    </div>
+</div>
+
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

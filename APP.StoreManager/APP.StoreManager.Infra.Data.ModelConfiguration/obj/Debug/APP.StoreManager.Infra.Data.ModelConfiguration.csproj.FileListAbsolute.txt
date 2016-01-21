@@ -1,0 +1,12 @@
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\bin\Debug\APP.StoreManager.Infra.Data.ModelConfiguration.dll.config
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\bin\Debug\APP.StoreManager.Infra.Data.ModelConfiguration.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\bin\Debug\APP.StoreManager.Infra.Data.ModelConfiguration.pdb
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\bin\Debug\APP.StoreManager.Domain.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\bin\Debug\EntityFramework.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\bin\Debug\EntityFramework.SqlServer.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\bin\Debug\APP.StoreManager.Domain.pdb
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\bin\Debug\EntityFramework.xml
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\bin\Debug\EntityFramework.SqlServer.xml
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\obj\Debug\APP.StoreManager.Infra.Data.ModelConfiguration.csprojResolveAssemblyReference.cache
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\obj\Debug\APP.StoreManager.Infra.Data.ModelConfiguration.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Infra.Data.ModelConfiguration\obj\Debug\APP.StoreManager.Infra.Data.ModelConfiguration.pdb

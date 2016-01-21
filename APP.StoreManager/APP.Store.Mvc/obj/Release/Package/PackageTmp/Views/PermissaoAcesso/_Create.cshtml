@@ -1,0 +1,32 @@
+﻿@model APP.Store.Mvc.Models.PermissaoAcessoViewModel
+
+@{
+       ViewBag.TituloModal = "CADASTRAR NOVA PERMISSÃO DE ACESSO";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">@ViewBag.TituloModal</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationSummary(true)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name)
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="button" class="btn btn-default pull-left" data-dismiss="modal" value="Cancelar"/>
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+        </div>
+}

@@ -1,0 +1,243 @@
+﻿@using System.Web.UI.WebControls
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="../../Content/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../Content/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../Content/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../Content/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../Content/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../Content/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../Content/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../Content/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../Content/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../Content/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../Content/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../Content/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../Content/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../Content/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#3C8DBC">
+    <meta name="msapplication-TileImage" content="../../Content/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#3C8DBC">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> &copy; Retirada Fácil Web </title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="#" class="logo">
+
+                @*logo com toggle ativado*@
+                <span class="logo-mini">
+                    <img src="~/Content/img/logo-toggle.png" height="25">
+                </span>
+
+                @*Logo para visualização mobile*@
+                <span class="logo-lg">
+                    <img src="~/Content/img/logo.png" height="25">
+                </span>
+            </a>
+
+            @*Header*@
+            <nav class="navbar navbar-static-top" role="navigation">
+                @*Botão para navegação*@
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Botão de Navegar</span>
+                </a>
+
+                <!-- Menu Superior direito -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        @*Menu do usuário*@
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+        @*Barra de menu Lateral*@
+        <aside class="main-sidebar">
+
+            <section class="sidebar">
+
+                @*@{
+                    if (Request.IsAuthenticated)
+                    {
+                        <div class="user-panel">
+                            <div class="pull-left image">
+                                <img src="~/Content/img/avatar.png" class="img-circle" alt="User Image">
+                            </div>
+                            <div class="pull-left info">
+                                <p class="text-sm">@User.Identity.Name</p>
+                                
+                                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                            </div>
+                        </div>
+                    }
+                }*@
+
+
+                @*Barra de busca
+                    <form action="#" method="get" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>*@
+
+
+
+                @*Menu lateral*@
+                <ul class="sidebar-menu">
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+                            if (claimsIdentity != null)
+                            {
+                                
+                                var claimSysAdm = claimsIdentity.FindFirst(c => c.Type == "SYS_ADMIN");
+
+                                if (claimSysAdm != null && claimSysAdm.Value == "True")
+                                {
+                                    
+                                    <li class="header">ÁREA DE ADMINISTRAÇÃO</li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "Empresa")"><i class="ion ion-podium"></i><span>Administrar Empresas</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "Usuario")"><i class="ion ion-ios-person"></i><span>Administrar Usuários</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "PermissaoAcesso")"><i class="ion ion-unlocked"></i><span>Administrar Permissões</span></a>
+                                    </li>
+                                    
+                                }
+
+                                else
+                                {
+                                    <li class="header">SELECIONE UMA AÇÃO</li>
+                                    
+                                    var claimRetirada = claimsIdentity.FindFirst(c => c.Type == "RETIRADA_ADMIN");
+                                    if (claimRetirada != null && claimRetirada.Value == "True")
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Index", "Retirada")"><i class="ion ion-arrow-graph-down-right"></i><span>Controle de Retiradas</span></a>
+                                        </li>
+                                    }
+
+                                    var claimRend = claimsIdentity.FindFirst(c => c.Type == "RENDIMENTO_ADMIN");
+                                    if (claimRend != null && claimRend.Value == "True")
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Index", "Rendimento")"><i class="ion ion-arrow-graph-up-right"></i><span>Controle de Rendimentos</span></a>
+                                        </li>
+                                    }
+
+                                    var claimFunc = claimsIdentity.FindFirst(c => c.Type == "FUNCIONARIO_ADMIN");
+                                    if (claimFunc != null && claimFunc.Value == "True")
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Index", "Funcionario")"><i class="ion ion-ios-people"></i><span>Administrar Funcionários</span></a>
+                                        </li>
+                                    }
+
+                                    var claimCaixa = claimsIdentity.FindFirst(c => c.Type == "CAIXA_ADMIN");
+                                    if (claimCaixa != null && claimCaixa.Value == "True")
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Index", "Caixa")"><i class="ion ion-filing"></i><span>Administrar Caixas</span></a>
+                                        </li>
+                                    }
+                                }
+
+                            }
+                        }
+
+}
+
+                </ul><!-- /.sidebar-menu -->
+
+
+
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        @*Conteúdo do site*@
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>
+                    @ViewBag.TituloPagina
+                    <small>@ViewBag.DescricaoPagina</small>
+                </h1>
+                @*<ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-tag"></i> Página</a></li>
+                    <li class="active">Aqui</li>
+                </ol>*@
+            </section>
+
+            @*Conteúdo principal*@
+            <section class="content">
+               
+                @if (TempData["MessageSuccess"] != null)
+                {
+                    <div class="alert alert-success flat alert-dismissable">
+                        <button class="close" aria-hidden="true" type="button" data-dismiss="alert">×</button>
+                        <h4><i class="icon fa fa-check"></i> Sucesso!</h4>
+                        <span id="mensagemErro">@TempData["MessageSuccess"]</span>
+                    </div>
+                }
+
+                @if (TempData["MessageError"] != null)
+                    {
+                        <div class="alert flat alert-error alert-dismissable">
+                            <button class="close" aria-hidden="true" type="button" data-dismiss="alert">×</button>
+                            <h4><i class="icon fa fa-ban"></i> Alerta!</h4>
+                            <span id="mensagemErro">@TempData["MessageError"]</span>
+                        </div>
+                    }
+                @RenderBody()
+            </section>
+        </div>
+
+
+        @*Rodapé*@
+        <footer class="main-footer text-sm">
+            <!-- To the right -->
+            <div class="pull-right hidden-xs">
+               @APP.Store.Mvc.Helper.TimeZoneHelper.DataAtualBrasil().ToString("dd/MM/yyyy HH:mm")
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; @APP.Store.Mvc.Helper.TimeZoneHelper.DataAtualBrasil().Year <a href="#">Organizador de Retiradas de Caixa</a>.</strong> Retirada Fácil - Todos os direitos reservados.
+        </footer>
+
+    </div>
+
+    <!-- REQUIRED JS SCRIPTS -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
+    @RenderSection("scripts", required: false)
+   
+</body>
+
+</html>

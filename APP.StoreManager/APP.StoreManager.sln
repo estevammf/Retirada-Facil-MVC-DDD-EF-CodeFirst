@@ -1,0 +1,128 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{3603163F-57C4-45C1-8D6B-7907D7027CA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{ACF2C2EC-FF70-4F19-B54B-8736AF743D32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{7E83BEDF-835E-4510-9ACD-BFB04B0CF8EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{B51F13FE-7601-4BEC-A654-5825C1347139}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{6B8A3EE2-DE71-4456-8990-FE1783618A02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{2966CC01-EE03-43E5-89F4-F8BCF7D0F364}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{5D825E90-4EE3-4D54-BF02-7B42D95C39D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP.StoreManager.Application", "APP.StoreManager.Application\APP.StoreManager.Application.csproj", "{33D4F9A2-959A-41E4-ACE7-3B60E730B69D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP.StoreManager.Domain", "APP.StoreManager.Domain\APP.StoreManager.Domain.csproj", "{99FCAF2E-E89F-4F53-8A5B-75E7FF655FA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP.StoreManager.Infra.Data", "APP.StoreManager.Infra.Data\APP.StoreManager.Infra.Data.csproj", "{30A37500-887D-4A33-9877-0643E6C0EAB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP.StoreManager.Infra.Data.ModelConfiguration", "APP.StoreManager.Infra.Data.ModelConfiguration\APP.StoreManager.Infra.Data.ModelConfiguration.csproj", "{4C1E8A08-0305-4CD9-80F9-F51D49F0CBD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP.StoreManager.Infra.CrossCutting.Identity", "APP.StoreManager.Infra.CrossCutting.Identity\APP.StoreManager.Infra.CrossCutting.Identity.csproj", "{37CB5132-08F6-4763-8D2F-F81DD063FDEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP.StoreManager.Infra.CrossCutting.IoC", "APP.StoreManager.Infra.CrossCutting.IoC\APP.StoreManager.Infra.CrossCutting.IoC.csproj", "{BDE3C363-45D4-48CD-A194-B3563E993E82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP.StoreManager.Infra.CrossCutting.MvcFilters", "APP.StoreManager.Infra.CrossCutting.MvcFilters\APP.StoreManager.Infra.CrossCutting.MvcFilters.csproj", "{2475A440-0F6D-4AD7-B572-476CC1F10356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP.Store.Mvc", "APP.Store.Mvc\APP.Store.Mvc.csproj", "{F8832560-3472-4A8C-8887-4D84911EE210}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://estevamfernandes.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = APP.StoreManager.Application\\APP.StoreManager.Application.csproj
+		SccProjectTopLevelParentUniqueName1 = APP.StoreManager.sln
+		SccProjectName1 = APP.StoreManager.Application
+		SccLocalPath1 = APP.StoreManager.Application
+		SccProjectUniqueName2 = APP.StoreManager.Domain\\APP.StoreManager.Domain.csproj
+		SccProjectTopLevelParentUniqueName2 = APP.StoreManager.sln
+		SccProjectName2 = APP.StoreManager.Domain
+		SccLocalPath2 = APP.StoreManager.Domain
+		SccProjectUniqueName3 = APP.StoreManager.Infra.Data\\APP.StoreManager.Infra.Data.csproj
+		SccProjectTopLevelParentUniqueName3 = APP.StoreManager.sln
+		SccProjectName3 = APP.StoreManager.Infra.Data
+		SccLocalPath3 = APP.StoreManager.Infra.Data
+		SccProjectUniqueName4 = APP.StoreManager.Infra.Data.ModelConfiguration\\APP.StoreManager.Infra.Data.ModelConfiguration.csproj
+		SccProjectTopLevelParentUniqueName4 = APP.StoreManager.sln
+		SccProjectName4 = APP.StoreManager.Infra.Data.ModelConfiguration
+		SccLocalPath4 = APP.StoreManager.Infra.Data.ModelConfiguration
+		SccProjectUniqueName5 = APP.StoreManager.Infra.CrossCutting.Identity\\APP.StoreManager.Infra.CrossCutting.Identity.csproj
+		SccProjectTopLevelParentUniqueName5 = APP.StoreManager.sln
+		SccProjectName5 = APP.StoreManager.Infra.CrossCutting.Identity
+		SccLocalPath5 = APP.StoreManager.Infra.CrossCutting.Identity
+		SccProjectUniqueName6 = APP.StoreManager.Infra.CrossCutting.IoC\\APP.StoreManager.Infra.CrossCutting.IoC.csproj
+		SccProjectTopLevelParentUniqueName6 = APP.StoreManager.sln
+		SccProjectName6 = APP.StoreManager.Infra.CrossCutting.IoC
+		SccLocalPath6 = APP.StoreManager.Infra.CrossCutting.IoC
+		SccProjectUniqueName7 = APP.StoreManager.Infra.CrossCutting.MvcFilters\\APP.StoreManager.Infra.CrossCutting.MvcFilters.csproj
+		SccProjectTopLevelParentUniqueName7 = APP.StoreManager.sln
+		SccProjectName7 = APP.StoreManager.Infra.CrossCutting.MvcFilters
+		SccLocalPath7 = APP.StoreManager.Infra.CrossCutting.MvcFilters
+		SccProjectUniqueName8 = APP.Store.Mvc\\APP.Store.Mvc.csproj
+		SccProjectTopLevelParentUniqueName8 = APP.StoreManager.sln
+		SccProjectName8 = APP.Store.Mvc
+		SccLocalPath8 = APP.Store.Mvc
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33D4F9A2-959A-41E4-ACE7-3B60E730B69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33D4F9A2-959A-41E4-ACE7-3B60E730B69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33D4F9A2-959A-41E4-ACE7-3B60E730B69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33D4F9A2-959A-41E4-ACE7-3B60E730B69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99FCAF2E-E89F-4F53-8A5B-75E7FF655FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99FCAF2E-E89F-4F53-8A5B-75E7FF655FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99FCAF2E-E89F-4F53-8A5B-75E7FF655FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99FCAF2E-E89F-4F53-8A5B-75E7FF655FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30A37500-887D-4A33-9877-0643E6C0EAB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A37500-887D-4A33-9877-0643E6C0EAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A37500-887D-4A33-9877-0643E6C0EAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A37500-887D-4A33-9877-0643E6C0EAB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C1E8A08-0305-4CD9-80F9-F51D49F0CBD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C1E8A08-0305-4CD9-80F9-F51D49F0CBD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C1E8A08-0305-4CD9-80F9-F51D49F0CBD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C1E8A08-0305-4CD9-80F9-F51D49F0CBD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37CB5132-08F6-4763-8D2F-F81DD063FDEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37CB5132-08F6-4763-8D2F-F81DD063FDEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37CB5132-08F6-4763-8D2F-F81DD063FDEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37CB5132-08F6-4763-8D2F-F81DD063FDEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE3C363-45D4-48CD-A194-B3563E993E82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE3C363-45D4-48CD-A194-B3563E993E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE3C363-45D4-48CD-A194-B3563E993E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE3C363-45D4-48CD-A194-B3563E993E82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2475A440-0F6D-4AD7-B572-476CC1F10356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2475A440-0F6D-4AD7-B572-476CC1F10356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2475A440-0F6D-4AD7-B572-476CC1F10356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2475A440-0F6D-4AD7-B572-476CC1F10356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8832560-3472-4A8C-8887-4D84911EE210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8832560-3472-4A8C-8887-4D84911EE210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8832560-3472-4A8C-8887-4D84911EE210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8832560-3472-4A8C-8887-4D84911EE210}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F8832560-3472-4A8C-8887-4D84911EE210} = {3603163F-57C4-45C1-8D6B-7907D7027CA1}
+		{33D4F9A2-959A-41E4-ACE7-3B60E730B69D} = {7E83BEDF-835E-4510-9ACD-BFB04B0CF8EA}
+		{99FCAF2E-E89F-4F53-8A5B-75E7FF655FA0} = {B51F13FE-7601-4BEC-A654-5825C1347139}
+		{2966CC01-EE03-43E5-89F4-F8BCF7D0F364} = {6B8A3EE2-DE71-4456-8990-FE1783618A02}
+		{5D825E90-4EE3-4D54-BF02-7B42D95C39D2} = {6B8A3EE2-DE71-4456-8990-FE1783618A02}
+		{30A37500-887D-4A33-9877-0643E6C0EAB7} = {2966CC01-EE03-43E5-89F4-F8BCF7D0F364}
+		{4C1E8A08-0305-4CD9-80F9-F51D49F0CBD6} = {2966CC01-EE03-43E5-89F4-F8BCF7D0F364}
+		{37CB5132-08F6-4763-8D2F-F81DD063FDEA} = {5D825E90-4EE3-4D54-BF02-7B42D95C39D2}
+		{BDE3C363-45D4-48CD-A194-B3563E993E82} = {5D825E90-4EE3-4D54-BF02-7B42D95C39D2}
+		{2475A440-0F6D-4AD7-B572-476CC1F10356} = {5D825E90-4EE3-4D54-BF02-7B42D95C39D2}
+	EndGlobalSection
+EndGlobal

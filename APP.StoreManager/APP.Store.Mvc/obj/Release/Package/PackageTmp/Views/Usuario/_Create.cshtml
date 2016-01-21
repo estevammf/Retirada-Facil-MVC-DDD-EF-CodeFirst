@@ -1,0 +1,58 @@
+﻿@model APP.StoreManager.Infra.CrossCutting.Identity.Model.RegisterViewModel
+
+@{
+    ViewBag.TituloModal = "CADASTRAR NOVO USUÁRIO";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+  
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">@ViewBag.TituloModal</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationSummary(true)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EmpresaId)
+                        @Html.DropDownListFor(x => x.EmpresaId, (IEnumerable<SelectListItem>)ViewBag.EmpresaId, new { @class = "form-control" })
+                        @*@Html.DropDownList("EmpresaId", String.Empty)*@
+                        @Html.ValidationMessageFor(model => model.EmpresaId,"", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email)
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email)
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password)
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "password" })
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ConfirmPassword)
+                        @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", @type = "password" })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="button" class="btn btn-default pull-left" data-dismiss="modal" value="Cancelar" />
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+        </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

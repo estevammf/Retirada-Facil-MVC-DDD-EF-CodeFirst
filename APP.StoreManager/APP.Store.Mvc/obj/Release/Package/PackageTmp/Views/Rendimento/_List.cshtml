@@ -1,0 +1,46 @@
+﻿@using APP.Store.Mvc.Helper
+@model IEnumerable<APP.Store.Mvc.Models.RendimentoViewModel>
+
+<div class="box-header with-border">
+    <h3 class="box-title">Autenticações do mês de <b>@ViewBag.Mes</b></h3>
+</div>
+<div class="box-body">
+    <table class="table table-striped">
+        <thead>
+            <tr class="text-bold text-blue text-uppercase">
+                <th>
+                    Tipo de Transação
+                </th>
+                <th>
+                    Quantidade de Autenticações
+                </th>
+                <th>
+                    Total de rendimentos por tipo de autenticação
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoTransacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantidade)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalRendimento)
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr> Não existe nenhum registro de autenticação para o mês selecionado</tr>
+            }
+        </tbody>
+    </table>
+</div>

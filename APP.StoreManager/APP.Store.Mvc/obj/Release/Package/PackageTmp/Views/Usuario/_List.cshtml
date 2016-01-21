@@ -1,0 +1,51 @@
+﻿@using APP.Store.Mvc.Helper
+@model IEnumerable<APP.StoreManager.Domain.Entities.Usuario>
+<table class="table table-striped text-center">
+        <tbody>
+            <tr>
+                <th>
+                    Email
+                </th>
+
+                <th>
+                    Nome da Empresa
+                </th>
+
+                <th>
+                    Usuário Ativo?
+                </th>
+
+                <th style="min-width: 100px;">
+                    @Html.NoEncodeActionLink("<i class='fa fa-plus'></i>", "Create", "Create", "Usuario", routeValues: null, htmlAttributes: new { data_modal = "", @class = "btn btn-primary pull-right" })
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Empresa.Nome)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LockoutEnabled)
+                    </td>
+
+                    <td>
+
+                        <div class="btn-group pull-right">
+                            @Html.NoEncodeActionLink("<i class='fa fa-pencil'></i>", "Edit", "Edit", "Usuario", routeValues: new { id = item.Id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+                            @Html.NoEncodeActionLink("<i class='fa fa-info'></i>", "Details", "Details", "Usuario", routeValues: new { id = item.Id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+                            @*@Html.NoEncodeActionLink("<i class='fa fa-trash'></i>", "Delete", "Delete", "Usuario", routeValues: new { id = item.Id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })*@
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+

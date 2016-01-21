@@ -1,0 +1,7 @@
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Application\bin\Release\APP.StoreManager.Application.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Application\bin\Release\APP.StoreManager.Application.pdb
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Application\bin\Release\APP.StoreManager.Domain.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Application\bin\Release\APP.StoreManager.Domain.pdb
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Application\obj\Release\APP.StoreManager.Application.csprojResolveAssemblyReference.cache
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Application\obj\Release\APP.StoreManager.Application.dll
+C:\Workspace\APP\Store Manager\APP.StoreManager\APP.StoreManager.Application\obj\Release\APP.StoreManager.Application.pdb

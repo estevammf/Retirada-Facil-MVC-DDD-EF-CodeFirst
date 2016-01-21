@@ -1,0 +1,121 @@
+﻿@using APP.Store.Mvc.Helper
+@using APP.Store.Mvc.Models
+@model IEnumerable<RetiradaViewModel>
+    
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var empresa = ViewBag.DadosEmpresa as EmpresaViewModel;
+}
+
+<div class="invoice">
+        <!-- title row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="page-header">
+                    <i class="ion ion-leaf"></i> &copy; Retirada Fácil @TimeZoneHelper.DataAtualBrasil().Year.
+                    <small class="pull-right">Data: @TimeZoneHelper.DataAtualBrasil().ToShortDateString()</small>
+                </h2>
+            </div><!-- /.col -->
+        </div>
+    <!-- info row -->
+    
+  
+    <div class="row invoice-info">
+        <div class="col-sm-6 invoice-col">
+            Dados da Empresa
+            @if (empresa != null)
+            {
+                <address>
+                    <b>@empresa.Nome</b> <br />
+                    <b>Cnpj: </b>@empresa.Cnpj <br />
+                    <b>Telefone: </b>@empresa.Telefone <br />
+                    <b>Cidade: </b>@empresa.Cidade
+                </address>
+            }
+        </div>
+        <div class="col-sm-6 invoice-col">
+            <b>Data de operação das retiradas:</b> @ViewBag.DataOperacao<br>
+            <b>Total das retiradas:</b> @ViewBag.TotalDoDia<br>
+        </div>
+    </div>
+
+    <br>
+    
+    
+    <div class="row">
+        <div class="col-sm-12 invoice-col">
+            <b>Quantidade de retiradas: @Model.Count()</b><br>
+        </div>
+    </div>
+    
+    <br/>
+
+    <!-- Table row -->
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="text-uppercase text-sm">
+                            <th>
+                                Data e Hora da Retirada
+                            </th>
+                            <th>
+                                Número do Caixa
+                            </th>
+                            <th>
+                                Operador do Caixa
+                            </th>
+                            <th>
+                                Valor Contido no Envelope
+                            </th>
+                            <th>
+                                Identificação do Envelope
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                    {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataHoraRegistro)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Caixa.NumeroIdentificador)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Caixa.Operador.Nome)
+                                </td>
+                                <td>
+                                    R$ @Html.DisplayFor(modelItem => item.Valor)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumeroEnvelope)
+                                </td>
+                            </tr>
+                    }
+                    </tbody>
+
+                </table>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+        
+    
+    <div class="row no-print">
+            <!-- accepted payments column -->
+            <div class="col-xs-12">
+                <p class="lead">Sobre o Retirada Fácil:</p>
+                <p class="text-muted well well-sm no-shadow flat text-sm" style="margin-top: 10px;">
+                    Retirada Facil é um software de suporte as empresas que trabalham com retiradas de dinheiro de caixa, auxiliando o dono da empresa no controle de sua agência.
+                </p>
+            </div><!-- /.col -->
+    </div><!-- /.row -->
+
+    <div class="row no-print">
+        <div class="col-xs-12">
+            <a class="btn btn-success btn-flat" href="javascript:window.print()"><i class="ion ion-printer"></i> Imprimir</a>
+            <a class="btn btn-default btn-flat" href="@Url.Action("Index", "Retirada")">Voltar</a>
+        </div>
+    </div>
+
+    </div>

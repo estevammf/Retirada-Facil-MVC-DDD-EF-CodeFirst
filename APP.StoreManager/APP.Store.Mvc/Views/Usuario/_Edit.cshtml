@@ -1,0 +1,75 @@
+﻿@using APP.Store.Mvc.Helper
+@model APP.Store.Mvc.Models.EdicaoUsuarioViewModel
+
+
+@{
+    ViewBag.TituloModal = "Editar Usuário";
+}
+
+
+            
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <h4 class="modal-title">@ViewBag.TituloModal</h4>
+</div>
+<div class="modal-body">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+
+    <h4>Lista de Claims para este usuário</h4>
+
+    @*@if (ViewBag.Claims.Count == 0)
+    {
+        <hr />
+        <p>Usuário não possui nenhuma Permissão de Acesso.</p>
+    <p>
+        @Html.ActionLink("Conceder acesso", "SetPermissaoAcesso", "PermissaoAcesso", new { id = Model.Id })
+    </p>
+    }
+    else
+    {*@
+        <table class="table">
+            <tr class="table-bordered">
+                <td>
+                    <b>Nome da Permissão</b>
+                </td>
+                <td>
+                    <b>Valor da Permissão</b>
+                </td>
+                <td>
+                    @Html.NoEncodeActionLink("<i class='fa fa-plus'></i>", "SetPermissaoAcesso", "SetPermissaoAcesso", "PermissaoAcesso", routeValues: new { id = Model.Id }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary pull-right" })
+                </td>
+            </tr>
+
+            @foreach (var item in ViewBag.Claims)
+            {
+                <tr>
+                    <td>
+                        @item.Type
+                    </td>
+                    <td>
+                        @item.Value
+                    </td>
+                </tr>
+            }
+        </table>
+   
+
+
+</div>
+
+<div class="modal-footer">
+    <input type="button" class="btn btn-default pull-left" data-dismiss="modal" value="Sair" />
+    @*<input type="submit" class="btn btn-primary" value="Salvar" />*@
+</div>
+        
+            
+      

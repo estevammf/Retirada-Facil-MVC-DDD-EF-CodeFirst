@@ -1,0 +1,61 @@
+﻿@model APP.Store.Mvc.Models.FuncionarioViewModel
+
+@{
+    ViewBag.Titulo = "Informações do Usuário";
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">@ViewBag.Titulo</h4>
+</div>
+
+<div class="modal-body">
+
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefoneFixo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefoneFixo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefoneCelular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefoneCelular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
+
+
+<div class="modal-footer">
+    <button class="btn" type="button" data-dismiss="modal">Sair</button>
+</div>

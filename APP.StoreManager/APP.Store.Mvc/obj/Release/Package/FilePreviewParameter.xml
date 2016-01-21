@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="retiradafacil" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Workspace\\APP\\Store\ Manager\\APP\.StoreManager\\APP\.Store\.Mvc\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Workspace\\APP\\Store\ Manager\\APP\.StoreManager\\APP\.Store\.Mvc\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="StoreManagerConnectionString-Web.config Connection String" description="" value="Data Source=tcp:efernandes.database.windows.net,1433;Initial Catalog=appDatabase;User ID=estevammf@efernandes;Password=Ah0m3x7q;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Workspace\\APP\\Store\ Manager\\APP\.StoreManager\\APP\.Store\.Mvc\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='StoreManagerConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,35 @@
+﻿@model APP.StoreManager.Domain.Entities.Caixa
+
+@{
+    ViewBag.Titulo = "Informações do Caixa";
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">@ViewBag.Titulo</h4>
+</div>
+
+<div class="modal-body">
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroIdentificador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroIdentificador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+    </dl>
+</div>
+<div class="modal-footer">
+    <button class="btn" type="button" data-dismiss="modal">Sair</button>
+</div>

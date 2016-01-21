@@ -1,0 +1,45 @@
+﻿@Styles.Render("~/Content/datepicker")
+
+@{
+    ViewBag.TituloPagina = "Rendimentos";
+    ViewBag.DescricaoPagina = "Visualização dos rendimentos baseada na quantidade de transações";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderAction("ListAnual");
+}
+
+<div class="box" id="conteudoRendimentos">
+    @{
+        Html.RenderAction("List");
+    }
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/datepicker")
+
+<script>
+
+    $('#DataReferenciaString').datepicker({
+        format: "dd/mm/yyyy",
+        language: "pt-BR"
+    });
+
+    function handleSuccess(result) {
+        if (result.redirectTo) {
+            // The controller action returned a JSON object with the redirectTo property
+            // let's redirect to this location:
+            window.location.href = result.redirectTo;
+        } else {
+            // The controller action returned a partial view with the form and the errors
+            // So we need to update some containing DIV with it:
+            $('#formCreate').html(result);
+        }
+    }
+</script>
+
+    }

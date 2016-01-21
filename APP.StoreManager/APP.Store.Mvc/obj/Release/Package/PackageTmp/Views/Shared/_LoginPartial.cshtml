@@ -1,0 +1,83 @@
+﻿@*@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+    }
+}*@
+
+
+
+@*Menu do usuário*@
+@{
+    if (Request.IsAuthenticated)
+    {
+        <li class="user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                @*Imagem do usuário*@
+                @*<img src="~/Content/img/avatar.png" class="img-circle" alt="User Image">*@
+                <img class="user-image" alt="User Image" src="~/Content/img/avatar.png">
+                @*Nome do Usuario*@
+                <span class="hidden-xs">@User.Identity.Name</span>
+            </a>
+
+            @*Menu de opções do usuário*@
+            <ul class="dropdown-menu">
+                <li class="user-header">
+                   <img src="~/Content/img/avatar.png" class="img-circle" alt="User Image">
+                    <p>
+                        @User.Identity.Name
+                        <small><i class="fa fa-circle text-success"></i> Online</small>
+                    </p>
+                </li>
+                <li class="user-footer">
+                    
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm"}))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="pull-left">
+                           
+                            @*@Html.ActionLink("Alterar Senha" + "!", "#", "#", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-flat" })*@
+                        </div>
+                        
+                        <div class="pull-right">
+                            <a class="btn btn-default btn-flat" href="javascript:document.getElementById('logoutForm').submit()">Sair do sistema</a>
+                        </div>
+                    }
+                </li>
+            </ul>
+        </li>
+        @*<li>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+            }
+        </li>
+    
+        <li class="dropdown messages-menu">
+
+            <a class="dropdown-toggle" aria-expanded="false" href="javascript:document.getElementById('logoutForm').submit()" data-toggle="dropdown">
+                <i class="fa fa-envelope-o"></i>
+                <span class="label label-success">4</span>
+            </a>
+         
+        </li>*@
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Entrar", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }
+}
+
